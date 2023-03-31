@@ -47,7 +47,11 @@ main {
   width: 800px;
   position: relative;
 }
-
+.col-6 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 #user {
   border: 1px solid rgb(14, 17, 17);
   background-color: var(--mr-nav);
@@ -67,8 +71,39 @@ img {
   height: 50px;
   border-radius: 50%;
 }
+/* icon */
+#icon {
+  color: rgba(128, 128, 128, 0.795);
+  margin-right: 1rem;
+}
+.fas {
+  margin: 0.4rem;
+  font-size: 18px;
+}
+#text-left {
+  margin-right: 10rem;
+  font-size: small;
+}
+#text-accesso {
+  font-size: 12px;
+  line-height: 40%;
+  margin-right: 30rem;
+}
+#text-accesso > p {
+  color: grey;
+}
+.iconbell {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mr-notifiche);
+}
 /* -- LEFT SIDE ON TOP-- */
-
 #personale {
   border: 1px solid rgb(14, 17, 17);
 }
@@ -83,7 +118,12 @@ img {
   background-color: var(--mr-nav);
   border: 1px solid rgb(14, 17, 17);
   display: flex;
-
+  align-items: center;
+  justify-content: space-around;
   position: absolute;
   bottom: 0;
+  width: 100%;
+  height: 6%;
 }
+
+/* RIGHT SIDE BOTTOM */
