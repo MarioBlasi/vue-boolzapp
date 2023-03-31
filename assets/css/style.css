@@ -39,39 +39,51 @@ main {
   height: 800px;
 }
 .col-4 {
-  background-color: rgba(0, 0, 255, 0.253);
+  border: 1px solid rgb(14, 17, 17);
   width: 400px;
 }
 .col-8 {
-  background-color: rgba(43, 182, 8, 0.322);
+  background-color: var(--mr-nav);
   width: 800px;
   position: relative;
 }
 
 #user {
-  border: 3px solid red;
+  border: 1px solid rgb(14, 17, 17);
+  background-color: var(--mr-nav);
 }
 #notifiche {
-  border: 3px solid rgb(0, 4, 255);
+  border: 1px solid rgb(14, 17, 17);
+  background-color: var(--mr-notifiche);
 }
 #search {
-  border: 5px solid rgb(14, 17, 17);
+  border: 1px solid rgb(14, 17, 17);
 }
 #contacts {
-  border: 5px solid rgb(36, 192, 192);
+  border: 1px solid rgb(14, 17, 17);
+}
+
+img {
+  height: 50px;
+  border-radius: 50%;
 }
 /* -- LEFT SIDE ON TOP-- */
 
 #personale {
-  border: 5px solid rgb(14, 17, 17);
+  border: 1px solid rgb(14, 17, 17);
 }
 /*-- RIGHT SIDE ON TOP---*/
+
 #bg-chat {
-  border: 5px solid rgb(218, 3, 182);
+  border: 1px solid rgb(14, 17, 17);
+  background-image: url(/assets/img/mine.jpg);
+  height: 90%;
 }
 #chat {
-  border: 5px solid rgb(5, 119, 119);
+  background-color: var(--mr-nav);
+  border: 1px solid rgb(14, 17, 17);
+  display: flex;
+
   position: absolute;
-  right: 0;
   bottom: 0;
 }
