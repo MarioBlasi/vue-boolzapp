@@ -39,7 +39,7 @@ main {
   height: 800px;
 }
 .col-4 {
-  border: 1px solid rgb(14, 17, 17);
+  border: 0.5px solid grey;
   width: 400px;
 }
 .col-8 {
@@ -53,18 +53,20 @@ main {
   justify-content: space-between;
 }
 #user {
-  border: 1px solid rgb(14, 17, 17);
   background-color: var(--mr-nav);
 }
 #notifiche {
-  border: 1px solid rgb(14, 17, 17);
   background-color: var(--mr-notifiche);
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
 #search {
-  border: 1px solid rgb(14, 17, 17);
+  border: 0.5px solid grey;
 }
 #contacts {
-  border: 1px solid rgb(14, 17, 17);
+  border: 0.5px solid grey;
 }
 
 img {
@@ -89,6 +91,30 @@ img {
   line-height: 40%;
   margin-right: 30rem;
 }
+#text-notifiche {
+  font-size: 12px;
+  line-height: 40%;
+  margin-left: 1rem;
+}
+/* icon bell */
+.input-group {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  background-color: #fff;
+}
+.btn,
+.form-control {
+  height: 2rem;
+}
+.btn {
+  width: 4rem;
+}
+.form-control {
+  width: 20rem;
+}
+/* search */
 #text-accesso > p {
   color: grey;
 }
@@ -105,18 +131,18 @@ img {
 }
 /* -- LEFT SIDE ON TOP-- */
 #personale {
-  border: 1px solid rgb(14, 17, 17);
+  border: 0.5px solid grey;
 }
 /*-- RIGHT SIDE ON TOP---*/
 
 #bg-chat {
-  border: 1px solid rgb(14, 17, 17);
+  border: 0.5px solid grey;
   background-image: url(/assets/img/mine.jpg);
   height: 90%;
 }
 #chat {
   background-color: var(--mr-nav);
-  border: 1px solid rgb(14, 17, 17);
+  border: 1px solid grey;
   display: flex;
   align-items: center;
   justify-content: space-around;
