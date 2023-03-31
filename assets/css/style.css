@@ -1,3 +1,20 @@
+/*
+Milestone 1
+Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) 
+e dall’interlocutore (bianco) assegnando due classi CSS diverse
+Visualizzazione dinamica della lista contatti: tramite la direttiva v-for,
+ visualizzare nome e immagine di ogni contatto
+
+*/
+
+:root {
+  --mr-nav: rgb(234, 234, 234);
+  --mr-msg_green: rgb(213, 249, 186);
+  --mr-msg_white: rgb(255, 255, 255);
+  --mr-notifiche: rgb(142, 218, 252);
+  --mr-hovergray: rgb(251, 252, 252);
+}
+/*-----------color------*/
 body {
   height: 100vh;
   background-image: linear-gradient(
@@ -7,6 +24,7 @@ body {
     #f0f0f0 100%
   );
 }
+
 main {
   height: 90vh;
 }
@@ -21,16 +39,39 @@ main {
   height: 800px;
 }
 .col-4 {
-  background-color: blue;
+  background-color: rgba(0, 0, 255, 0.253);
   width: 400px;
 }
 .col-8 {
-  background-color: rgb(43, 182, 8);
+  background-color: rgba(43, 182, 8, 0.322);
   width: 800px;
+  position: relative;
 }
-#me {
-  background-color: aqua;
-}
+
 #user {
-  background-color: coral;
+  border: 3px solid red;
+}
+#notifiche {
+  border: 3px solid rgb(0, 4, 255);
+}
+#search {
+  border: 5px solid rgb(14, 17, 17);
+}
+#contacts {
+  border: 5px solid rgb(36, 192, 192);
+}
+/* -- LEFT SIDE ON TOP-- */
+
+#personale {
+  border: 5px solid rgb(14, 17, 17);
+}
+/*-- RIGHT SIDE ON TOP---*/
+#bg-chat {
+  border: 5px solid rgb(218, 3, 182);
+}
+#chat {
+  border: 5px solid rgb(5, 119, 119);
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
