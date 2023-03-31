@@ -10,16 +10,27 @@ body {
 main {
   height: 90vh;
 }
-
+.container {
+  /* width: 1400px; */
+}
 .row {
   display: flex;
+  margin-top: 5rem;
+  flex-direction: row;
   justify-content: center;
-  margin-top: 10rem;
-  flex-direction: ;
+  height: 800px;
 }
 .col-4 {
   background-color: blue;
+  width: 400px;
 }
 .col-8 {
   background-color: rgb(43, 182, 8);
+  width: 800px;
+}
+#me {
+  background-color: aqua;
+}
+#user {
+  background-color: coral;
 }
