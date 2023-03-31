@@ -66,7 +66,7 @@
               <div id="contatti">
                 <ul>
                   <li v-for="contact in contacts" :key="contact.id">
-                    <!-- <img :src="`img/avatar${name.avatar}.jpg`" /> -->
+                    <img :src="contact.avatar" :alt="contact.name" />
                     <span>{{ contact.name }}</span>
                   </li>
                 </ul>
@@ -106,7 +106,16 @@
             </div>
             <!-- SEZIONE SFONDO CHAT -->
             <div id="bg-chat">
-              <p>lorem.</p>
+              <ul>
+                <li
+                  v-for="message in messages"
+                  :key="message.id"
+                  :class="[message.status === 'sent' ? 
+                'sent-message' : 'received-message']"
+                >
+                  <span>{{ message.text }}</span>
+                </li>
+              </ul>
             </div>
             <!-- -------------- RIGHT SIDE BOTTOM---------------------- -->
             <!-- SEZIONE CHAT -->

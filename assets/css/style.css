@@ -54,6 +54,13 @@ main {
   padding-top: 0.4rem;
 }
 
+ul {
+  list-style: none;
+}
+/* li.media:hover {
+  cursor: pointer;
+  background-color: #eaeaea;
+} */
 #user {
   background-color: var(--mr-nav);
 }
@@ -185,3 +192,12 @@ img {
   margin-right: 1rem;
 }
 /* RIGHT SIDE BOTTOM */
+.sent-message {
+  background-color: green;
+  color: white;
+}
+
+.received-message {
+  background-color: white;
+  color: black;
+}
