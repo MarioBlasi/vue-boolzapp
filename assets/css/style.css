@@ -1,0 +1,25 @@
+body {
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    #00bfa5 15%,
+    #f0f0f0 15%,
+    #f0f0f0 100%
+  );
+}
+main {
+  height: 90vh;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+  flex-direction: ;
+}
+.col-4 {
+  background-color: blue;
+}
+.col-8 {
+  background-color: rgb(43, 182, 8);
+}
