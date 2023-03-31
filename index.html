@@ -70,16 +70,6 @@
                     <span>{{ contact.name }}</span>
                   </li>
                 </ul>
-                <!-- <div id="each-cont">
-                  <img src="/assets/img/avatar_1.jpg " alt="" />
-                </div>
-                <div id="each-text">
-                  <h3><b>Michele</b></h3>
-                  <p>ultimo messaggio inviato</p>
-                </div>
-                <div class="ora">
-                  <span>12:00</span>
-                </div> -->
               </div>
             </div>
           </div>
@@ -106,17 +96,21 @@
             </div>
             <!-- SEZIONE SFONDO CHAT -->
             <div id="bg-chat">
-              <ul>
+              <ul class="messages-rx">
                 <li
-                  v-for="message in messages"
+                  class="send"
+                  v-for="(message, index) in contacts[contactIndex].messages"
                   :key="message.id"
-                  :class="[message.status === 'sent' ? 
-                'sent-message' : 'received-message']"
                 >
-                  <span>{{ message.text }}</span>
+                  <span>{{ message.message }}</span>
+                  <!-- <p>lorem</p> -->
                 </li>
               </ul>
+              <!-- <ul class="messages-sx">
+                <li class="received"><p>lorem</p></li>
+              </ul> -->
             </div>
+
             <!-- -------------- RIGHT SIDE BOTTOM---------------------- -->
             <!-- SEZIONE CHAT -->
             <div class="col-12" id="chat">

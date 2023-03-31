@@ -13,6 +13,7 @@ Visualizzazione dinamica della lista contatti: tramite la direttiva v-for,
   --mr-msg_white: rgb(255, 255, 255);
   --mr-notifiche: rgb(142, 218, 252);
   --mr-hovergray: rgb(251, 252, 252);
+  --mr-msg-send: rgb(213, 249, 186);
 }
 /*-----------color------*/
 body {
@@ -192,12 +193,31 @@ img {
   margin-right: 1rem;
 }
 /* RIGHT SIDE BOTTOM */
-.sent-message {
-  background-color: green;
-  color: white;
+.messages-rx {
+  display: flex;
+  justify-content: end;
 }
-
-.received-message {
-  background-color: white;
-  color: black;
+.send {
+  background-color: var(--mr-msg-send);
+  width: 16rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+  padding: 0.2rem;
+}
+.messages-sx {
+  display: flex;
+  justify-content: start;
+}
+.received {
+  background-color: #f0f0f0;
+  width: 16rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+  padding: 0.2rem;
 }

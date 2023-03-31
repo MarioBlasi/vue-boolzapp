@@ -15,6 +15,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      contactIndex: 0,
       user: {
         name: "Mario",
         avatar: "_4",
