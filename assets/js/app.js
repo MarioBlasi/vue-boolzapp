@@ -7,7 +7,8 @@ visualizzare nome e immagine di ogni contatto
 
 Milestone 2
 Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, 
-visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
+visualizzare tutti i messaggi relativi al contatto attivo all’interno del 
+pannello della conversazione
 Click sul contatto mostra la conversazione del contatto cliccato
 */
 const { createApp } = Vue;
@@ -16,6 +17,14 @@ createApp({
   data() {
     return {
       contactIndex: 0,
+      answerRandom: [
+        "vedremo",
+        "forse no",
+        "ti aspetto",
+        "non lo so",
+        "forse si",
+        "non penso di arrivare in orario",
+      ],
       user: {
         name: "Mario",
         avatar: "_4",
@@ -184,5 +193,11 @@ createApp({
         },
       ],
     };
+  },
+  methods: {
+    // // FUNZIONE RANDOM RISPOSTE
+    // randomNumber(min, max) {
+    //   return Math.floor(Math.random() * (max - min + 1) + min);
+    // },
   },
 }).mount("#app");
