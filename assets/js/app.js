@@ -15,6 +15,7 @@ const { createApp } = Vue;
 
 createApp({
   data() {
+    console.log(this.contacts);
     return {
       contactIndex: 0,
       answerRandom: [
@@ -195,9 +196,19 @@ createApp({
     };
   },
   methods: {
-    // // FUNZIONE RANDOM RISPOSTE
-    // randomNumber(min, max) {
-    //   return Math.floor(Math.random() * (max - min + 1) + min);
-    // },
+    // CANCELLA MESSAGGIO
+    deleteMessage(index, contactIndex) {
+      this.contacts[contactIndex].messages.splice(index, 1);
+    },
+    // FUNZIONE RANDOM RISPOSTE
+    randomNumber(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    },
+    showMessages(index) {
+      // Imposta la proprietà "visible" del contatto cliccato su "true"
+      this.contacts[index].visible = true;
+      // Imposta l'indice del contatto attivo
+      this.contactIndex = index;
+    },
   },
 }).mount("#app");

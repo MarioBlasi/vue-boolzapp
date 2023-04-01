@@ -230,3 +230,7 @@ img {
   padding: 0.5rem;
   margin: 1rem;
 }
+#xmark {
+  color: red;
+  margin: 1rem;
+}

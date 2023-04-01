@@ -31,11 +31,13 @@
             <div id="user" class="col-12">
               <div class="col-6" id=" user-details-top ">
                 <div id="userimg">
-                  <img src="/assets/img/avatar_6.jpg " alt="" />
+                  <img :src="`/assets/img/avatar${user.avatar}.jpg`" />
                 </div>
+
                 <div id="text-left">
-                  <h3><b>Sophia</b></h3>
+                  <b><h3>{{ user.name }}</h3></b>
                 </div>
+
                 <div id="icon">
                   <i class="fas fa-circle-notch clickable"></i>
                   <i class="fas fa-comment-alt clickable"></i>
@@ -65,7 +67,12 @@
               <!-- SEZIONE CONTATTI -->
               <div id="contatti">
                 <ul>
-                  <li v-for="contact in contacts" :key="contact.id">
+                  <li
+                    v-for="(contact, index) in contacts"
+                    :key="contact.id"
+                    @click="showMessages(index)"
+                    :class="{ active: contact.visible }"
+                  >
                     <img :src="contact.avatar" :alt="contact.name" />
                     <span>{{ contact.name }}</span>
                   </li>
@@ -84,6 +91,7 @@
 
                 <div id="text-accesso">
                   <h3><b>Michele</b></h3>
+
                   <p>ultimo accesso oggi alle 12:00</p>
                 </div>
 
@@ -96,19 +104,38 @@
             </div>
             <!-- SEZIONE SFONDO CHAT -->
             <div id="bg-chat">
-              <ul class="messages-rx">
-                <li
-                  class="send"
-                  v-for="(message, index) in contacts[contactIndex].messages"
-                  :key="message.id"
-                >
-                  <span>{{ message.message }}</span>
-                  <!-- <p>lorem</p> -->
-                </li>
-              </ul>
-              <!-- <ul class="messages-sx">
-                <li class="received"><p>lorem</p></li>
-              </ul> -->
+              <div class="dx">
+                <ul class="messages">
+                  <li
+                    class="sent"
+                    v-for="(message, index) in contacts[contactIndex].messages"
+                    :key="message.id"
+                  >
+                    <span>{{ message.message }}</span>
+                    <i
+                      class="fa solid fa-xmark"
+                      id="xmark"
+                      @click="deleteMessage(index, contactIndex)"
+                    ></i>
+                  </li>
+                </ul>
+              </div>
+              <div class="sx">
+                <ul class="messagesReceived">
+                  <li
+                    class="received"
+                    v-for="(message, index) in contacts[contactIndex].messages"
+                    :key="message.id"
+                  >
+                    <span>{{message.message }}</span>
+                    <i
+                      class="fa solid fa-xmark"
+                      id="xmark"
+                      @click="deleteMessage(index, contactIndex)"
+                    ></i>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             <!-- -------------- RIGHT SIDE BOTTOM---------------------- -->
