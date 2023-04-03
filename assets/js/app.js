@@ -26,7 +26,6 @@ const { createApp } = Vue;
 
 createApp({
   data() {
-    console.log(this.contacts);
     return {
       searchTerm: "",
       contactIndex: 0,

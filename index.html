@@ -29,15 +29,13 @@
           <!-- SEZIONE USER -->
           <div class="col-4">
             <div id="user" class="col-12">
-              <div class="col-6" id=" user-details-top ">
+              <div class="col-6" id="user-details-top">
                 <div id="userimg">
                   <img :src="`/assets/img/avatar${user.avatar}.jpg`" />
                 </div>
-
                 <div id="text-left">
                   <b><h3>{{ user.name }}</h3></b>
                 </div>
-
                 <div id="icon">
                   <i class="fas fa-circle-notch clickable"></i>
                   <i class="fas fa-comment-alt clickable"></i>
@@ -62,9 +60,9 @@
                 <div class="form-outline">
                   <input
                     type="search"
-                    id="form1"
                     class="form-search"
                     placeholder="Cerca o inizia una nuova chat..."
+                    v-model="searchTerm"
                   />
                 </div>
               </div>
@@ -72,14 +70,13 @@
               <!-- SEZIONE CONTATTI -->
               <div id="contatti">
                 <ul class="elenco">
-                  <!-- :class="index === activeContact ? 'active' : '' " -->
                   <li
                     v-for="(contact, index) in contacts"
                     :key="contact.id"
-                    @click="showMessages(index)"
+                    @click="showContact(index)"
                     :class="{ active: contact.visible }"
                   >
-                    <img :src="contact.avatar" :alt="contact.name" />
+                    <img :src="contact.avatar" />
                     <div class="textcontact">
                       <b><span>{{ contact.name }}</span></b>
                     </div>
@@ -95,10 +92,9 @@
               <div class="col-6">
                 <div id="user-top-right">
                   <img
-                    src="`/assets/img/avatar${contacts[contactIndex].avatar}.jpg`"
+                    :src="`/assets/img/avatar${contacts[contactIndex].avatar}.jpg`"
                   />
                 </div>
-
                 <div id="text-accesso">
                   <div>{{contacts[contactIndex].name}}</div>
                   <p>ultimo accesso oggi alle 12:00</p>
@@ -132,55 +128,7 @@
                 </li>
               </ul>
             </div>
-            <!-- <div id="bg-chat">
-      
-              <div class="dx">
-                <ul>
-                  <li
-                    class="sent"
-                    v-for="(message, index) in contacts[contactIndex].messages"
-                    :key="message.id"
-                  >
-                    <span>{{ message.message }}</span>
-                    <i
-                      class="fa solid fa-xmark"
-                      id="xmark"
-                      @click="deleteMessage(index, contactIndex)"
-                    ></i>
-                    <div class="date">
-                      <time>{{ message.date }}</time>
-                    </div>
-                  </li>
-                
 
-                  <li
-                    class="sent"
-                    v-for="(Answer, index) in answerRandom"
-                    :key="index"
-                  >
-                    <span @click="toggleDone(index)">
-                      {{Answer.text}}
-                    </span>
-                    <i
-                      class="fa solid fa-xmark"
-                      id="xmark"
-                      @click="removeAnswer(index, contactIndex)"
-                    ></i>
-                  </li>
-                </ul>
-              </div>
-            
-              <div class="sx">
-                <ul>
-                  <li
-                    class="received"
-                    v-for="(risposta,index) in responsesFromUser[contactIndex]"
-                  >
-                    <span>{{risposta }}</span>
-                  </li>
-                </ul>
-              </div>
-            </div> -->
             <!-- -------------- RIGHT SIDE BOTTOM---------------------- -->
             <!-- SEZIONE CHAT -->
             <div class="col-12" id="chat">
