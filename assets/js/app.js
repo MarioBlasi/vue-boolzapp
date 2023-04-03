@@ -10,6 +10,17 @@ Visualizzazione dinamica dei messaggi: tramite la direttiva v-for,
 visualizzare tutti i messaggi relativi al contatto attivo all’interno del 
 pannello della conversazione
 Click sul contatto mostra la conversazione del contatto cliccato
+
+Milestone 3
+● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+“enter” il testo viene aggiunto al thread sopra, come messaggio verde
+● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+un “ok” come risposta, che apparirà dopo 1 secondo.
+
+Milestone 4
+● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+“mar” rimangono solo Marco e Martina)
 */
 const { createApp } = Vue;
 
@@ -17,16 +28,10 @@ createApp({
   data() {
     console.log(this.contacts);
     return {
+      searchTerm: "",
       contactIndex: 0,
-      answerRandom: [],
-      responsesFromUser: [
-        "ok",
-        // "forse no",
-        // "ti aspetto",
-        // "non lo so",
-        // "forse si",
-        // "non penso di arrivare in orario",
-      ],
+      chatMessage: "",
+      answerRandom: ["ok"],
       user: {
         name: "Mario",
         avatar: "_4",
@@ -199,36 +204,42 @@ createApp({
   methods: {
     // CANCELLA MESSAGGIO
     deleteMessage(index, contactIndex) {
-      console.log("rimuovo 1");
       this.contacts[contactIndex].messages.splice(index, 1);
     },
     // FUNZIONE RANDOM RISPOSTE
     randomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
-    showMessages(index) {
-      // Imposta la proprietà "visible" del contatto cliccato su "true"
-      this.contacts[index].visible = true;
-      // Imposta l'indice del contatto attivo
+    // FILTRO
+    showItem(contact) {
+      if (!this.searchTerm.trim()) return true;
+      const filter = this.searchTerm.trim().toLowerCase();
+      contact = contact.toLowerCase();
+      return contact.includes(filter);
+    },
+    // CLICK CONTATTI E VISUALIZZAZIONE NELL'HEDER E NEL MAIN
+    showContact(index) {
       this.contactIndex = index;
     },
-    addAnswer() {
-      if (this.newAnswer.trim() !== "") {
-        console.log("Aggiungo un nuova domanda");
-        this.answerRandom.push({ text: this.newAnswer, done: false });
-        this.newAnswer = "";
-      }
-    },
-    // removeresponses(index) {
-    //   console.log("rimuovo responses");
-    //   this.responsesRandom.splice(index, 1);
-    // },
-    removeAnswer(index) {
-      console.log("rimuovo");
-      this.answerRandom.splice(index, 1);
-    },
-    toggleDone(index) {
-      this.answerRandom[index].done = !this.answerRandom[index].done;
+    // SCRIVI MESSAGGIO
+    addMessage() {
+      if (!this.chatMessage) return;
+      this.contacts[this.contactIndex].messages.push({
+        date: "10/01/2020 15:30:55",
+        message: this.chatMessage,
+        status: "sent",
+      });
+      setTimeout(() => {
+        this.contacts[this.contactIndex].messages.push({
+          date: "10/01/2020 15:30:55",
+          message:
+            this.answerRandom[
+              this.randomNumber(0, this.answerRandom.length - 1)
+            ],
+          status: "received",
+        });
+      }, 1000);
+      this.chatMessage = "";
     },
   },
 }).mount("#app");

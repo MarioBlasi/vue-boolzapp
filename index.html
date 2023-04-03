@@ -60,7 +60,12 @@
                   <i class="fas fa-search"></i>
                 </button>
                 <div class="form-outline">
-                  <input type="search" id="form1" class="form-search" />
+                  <input
+                    type="search"
+                    id="form1"
+                    class="form-search"
+                    placeholder="Cerca o inizia una nuova chat..."
+                  />
                 </div>
               </div>
               <!-- -------------- LEFT SIDE BOTTOM---------------------- -->
@@ -89,12 +94,13 @@
             <div id="personale" class="col-12">
               <div class="col-6">
                 <div id="user-top-right">
-                  <img src="/assets/img/avatar_1.jpg " alt="" />
+                  <img
+                    src="`/assets/img/avatar${contacts[contactIndex].avatar}.jpg`"
+                  />
                 </div>
 
                 <div id="text-accesso">
-                  <h3><b>Michele</b></h3>
-
+                  <div>{{contacts[contactIndex].name}}</div>
                   <p>ultimo accesso oggi alle 12:00</p>
                 </div>
 
@@ -106,8 +112,28 @@
               </div>
             </div>
             <!-- SEZIONE SFONDO CHAT -->
-            <div id="bg-chat">
-              <!-- ↓ ↓ ↓ ↓ right side  ↓ ↓ ↓ ↓-->
+            <div class="bgChat">
+              <ul>
+                <li
+                  v-for="(message, index) in contacts[contactIndex].messages"
+                  class="message-container"
+                  :class="message.status"
+                >
+                  <div class="message p-2 rounded-3">
+                    <p>{{ message.message }}</p>
+                    <span class="dropdown">
+                      <i
+                        class="fas fa-trash"
+                        @click="deleteMessage(index, contactIndex)"
+                      ></i>
+                    </span>
+                    <time>{{ message.date }}</time>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- <div id="bg-chat">
+      
               <div class="dx">
                 <ul>
                   <li
@@ -121,8 +147,12 @@
                       id="xmark"
                       @click="deleteMessage(index, contactIndex)"
                     ></i>
+                    <div class="date">
+                      <time>{{ message.date }}</time>
+                    </div>
                   </li>
-                  <!-- ↓ ↓ ↓ ↓  l'utente digita e fa enter   ↓ ↓ ↓ ↓  -->
+                
+
                   <li
                     class="sent"
                     v-for="(Answer, index) in answerRandom"
@@ -139,51 +169,18 @@
                   </li>
                 </ul>
               </div>
-              <!-- ↓ ↓ ↓ ↓ left side  ↓ ↓ ↓ ↓-->
+            
               <div class="sx">
                 <ul>
                   <li
                     class="received"
-                    v-for="(responsesFromUser, index) in contacts[contactIndex].messages"
-                    :key="responsesFromUser.id"
+                    v-for="(risposta,index) in responsesFromUser[contactIndex]"
                   >
-                    <span>{{ responsesFromUser.responsesFromUser }}</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- left side -->
-
-            <!-- SEZIONE SFONDO CHAT test 4
-            <div id="bg-chat">
-              <div class="dx">
-                <ul class="messages">
-                  <li
-                    class="sent"
-                    v-for="(message, index) in contacts[contactIndex].messages"
-                    :key="message.id"
-                  >
-                    <span>{{ message.message }}</span>
-                    <i
-                      class="fa solid fa-xmark"
-                      id="xmark"
-                      @click="deleteMessage(index, contactIndex)"
-                    ></i>
-                 
-                  <li class="sent" v-for="(Answer, index) in answerRandom" :key="index">
-                    <span :class="{done:Answer.done}" @click="toggleDone(index)">
-                      {{Answer.text}}
-                    </span>
-                    <i
-                    class="fa solid fa-xmark"
-                    id="xmark"
-                    @click="deleteMessage(index, contactIndex)"
-                  ></i>
+                    <span>{{risposta }}</span>
                   </li>
                 </ul>
               </div>
             </div> -->
-
             <!-- -------------- RIGHT SIDE BOTTOM---------------------- -->
             <!-- SEZIONE CHAT -->
             <div class="col-12" id="chat">
@@ -197,20 +194,12 @@
                   <input
                     id="inserisci"
                     type="text"
-                    v-model="newAnswer "
-                    @keyup.enter="addAnswer"
                     class="form-control"
+                    v-model.trim="chatMessage"
+                    @keyup.enter="addMessage"
+                    placeholder="Scrivi un messaggio"
                   />
                 </div>
-                <!-- <div
-                  class="sent"
-                  v-for="(Answer, index) in answerRandom"
-                  :key="index"
-                >
-                  <span :class="{done:Answer.done}" @click="toggleDone(index)">
-                    {{Answer.text}}
-                  </span>
-                </div> -->
               </div>
               <div class="col-1">
                 <div class="icon-right">

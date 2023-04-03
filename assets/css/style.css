@@ -201,7 +201,7 @@ img {
 }
 /*-- RIGHT SIDE ON TOP---*/
 
-#bg-chat {
+.bgChat {
   border: 0.5px solid lightgrey;
   background-image: url(/assets/img/mine.jpg);
   height: 90%;
@@ -230,49 +230,57 @@ img {
   margin-right: 1rem;
 }
 /* RIGHT SIDE BOTTOM */
-.dx {
+
+.message-container {
   display: flex;
-  justify-content: end;
 }
-.sent {
-  background-color: var(--mr-msg-send);
+.message-container.sent {
+  justify-content: flex-end;
+}
+
+.message-container.received {
+  justify-content: flex-start;
+}
+
+.message-container.sent .message {
+  background-color: #d5f9ba;
   box-shadow: 7px 7px 13px -2px rgba(81, 81, 81, 0.41);
-  width: 18rem;
-  height: 2.8rem;
-  display: flex;
-  align-items: center;
-  border-radius: 0.5rem;
-  margin-right: 1rem;
-  padding: 0.5rem;
-  margin: 1rem;
 }
-.sx {
-  display: flex;
-  justify-content: start;
-}
-.received {
-  background-color: #f0f0f0;
+
+.message-container.received .message {
+  background-color: #fff;
   box-shadow: 7px 7px 13px -2px rgba(81, 81, 81, 0.41);
-  width: 18rem;
-  height: 2.8rem;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  border-radius: 0.5rem;
-  margin-right: 1rem;
-  padding: 0.5rem;
-  margin: 1rem;
 }
-li {
-  position: relative;
+
+.message-container .message p {
+  margin-bottom: 0;
+  margin-right: 20px;
 }
-#xmark {
-  /* color: transparent; */
-  font-size: xx-large;
-  position: absolute;
-  right: 0;
+.message-container .message time {
+  display: block;
+  text-align: right;
+  font-size: 11px;
+  color: #aaa;
 }
-#xmark:hover {
+.message-container:hover .dropdown {
+  display: block;
   cursor: pointer;
-  color: black;
 }
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  transform: translateX(-50%);
+  color: black;
+  cursor: pointer;
+}
+.message {
+  position: relative;
+  width: 300px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  overflow-wrap: break-word;
+}
+/*-- SEZIONE SFONDO CHAT */
