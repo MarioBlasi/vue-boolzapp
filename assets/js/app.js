@@ -18,8 +18,9 @@ createApp({
     console.log(this.contacts);
     return {
       contactIndex: 0,
-      answerRandom: [
-        // "vedremo",
+      answerRandom: [],
+      responsesFromUser: [
+        "ok",
         // "forse no",
         // "ti aspetto",
         // "non lo so",
@@ -198,6 +199,7 @@ createApp({
   methods: {
     // CANCELLA MESSAGGIO
     deleteMessage(index, contactIndex) {
+      console.log("rimuovo 1");
       this.contacts[contactIndex].messages.splice(index, 1);
     },
     // FUNZIONE RANDOM RISPOSTE
@@ -217,6 +219,10 @@ createApp({
         this.newAnswer = "";
       }
     },
+    // removeresponses(index) {
+    //   console.log("rimuovo responses");
+    //   this.responsesRandom.splice(index, 1);
+    // },
     removeAnswer(index) {
       console.log("rimuovo");
       this.answerRandom.splice(index, 1);

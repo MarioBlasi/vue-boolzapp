@@ -67,6 +67,7 @@
               <!-- SEZIONE CONTATTI -->
               <div id="contatti">
                 <ul class="elenco">
+                  <!-- :class="index === activeContact ? 'active' : '' " -->
                   <li
                     v-for="(contact, index) in contacts"
                     :key="contact.id"
@@ -74,7 +75,9 @@
                     :class="{ active: contact.visible }"
                   >
                     <img :src="contact.avatar" :alt="contact.name" />
-                    <b><span>{{ contact.name }}</span></b>
+                    <div class="textcontact">
+                      <b><span>{{ contact.name }}</span></b>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -104,6 +107,7 @@
             </div>
             <!-- SEZIONE SFONDO CHAT -->
             <div id="bg-chat">
+              <!-- ↓ ↓ ↓ ↓ right side  ↓ ↓ ↓ ↓-->
               <div class="dx">
                 <ul>
                   <li
@@ -118,47 +122,34 @@
                       @click="deleteMessage(index, contactIndex)"
                     ></i>
                   </li>
-
+                  <!-- ↓ ↓ ↓ ↓  l'utente digita e fa enter   ↓ ↓ ↓ ↓  -->
                   <li
                     class="sent"
                     v-for="(Answer, index) in answerRandom"
                     :key="index"
                   >
-                    <span
-                      :class="{done:Answer.done}"
-                      @click="toggleDone(index)"
-                    >
+                    <span @click="toggleDone(index)">
                       {{Answer.text}}
                     </span>
                     <i
                       class="fa solid fa-xmark"
                       id="xmark"
-                      @click="deleteMessage(index, contactIndex)"
+                      @click="removeAnswer(index, contactIndex)"
                     ></i>
                   </li>
                 </ul>
               </div>
-              <!-- right side -->
+              <!-- ↓ ↓ ↓ ↓ left side  ↓ ↓ ↓ ↓-->
               <div class="sx">
-                <!-- <ul>
+                <ul>
                   <li
                     class="received"
-                    v-for="(Answer, index) in answerRandom"
-                    :key="index"
+                    v-for="(responsesFromUser, index) in contacts[contactIndex].messages"
+                    :key="responsesFromUser.id"
                   >
-                    <span
-                      :class="{done:Answer.done}"
-                      @click="toggleDone(index)"
-                    >
-                      {{Answer.text}}
-                    </span>
-                    <i
-                      class="fa solid fa-xmark"
-                      id="xmark"
-                      @click="deleteMessage(index, contactIndex)"
-                    ></i>
+                    <span>{{ responsesFromUser.responsesFromUser }}</span>
                   </li>
-                </ul> -->
+                </ul>
               </div>
             </div>
             <!-- left side -->
