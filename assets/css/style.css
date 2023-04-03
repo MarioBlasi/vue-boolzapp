@@ -24,6 +24,7 @@ body {
     #f0f0f0 15%,
     #f0f0f0 100%
   );
+  overflow: hidden;
 }
 
 main {
@@ -101,6 +102,17 @@ img {
 }
 .contatti {
   background-color: lightgray;
+  display: flex;
+  align-items: center;
+}
+.elenco {
+  overflow-y: scroll;
+}
+.elenco {
+  /* display: flex;
+  align-items: center;
+  flex-direction: column; */
+  /* overflow: scroll; */
 }
 /* <!-- SEZIONE CONTATTI --> */
 /* icon */
@@ -213,8 +225,7 @@ img {
 .icon-left {
   margin-left: 1rem;
 }
-.middle {
-}
+
 .icon-right {
   margin-right: 1rem;
 }
@@ -252,7 +263,16 @@ img {
   padding: 0.5rem;
   margin: 1rem;
 }
+li {
+  position: relative;
+}
 #xmark {
-  color: red;
-  margin: 1rem;
+  /* color: transparent; */
+  font-size: xx-large;
+  position: absolute;
+  right: 0;
+}
+#xmark:hover {
+  cursor: pointer;
+  color: black;
 }

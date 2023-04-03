@@ -19,12 +19,12 @@ createApp({
     return {
       contactIndex: 0,
       answerRandom: [
-        "vedremo",
-        "forse no",
-        "ti aspetto",
-        "non lo so",
-        "forse si",
-        "non penso di arrivare in orario",
+        // "vedremo",
+        // "forse no",
+        // "ti aspetto",
+        // "non lo so",
+        // "forse si",
+        // "non penso di arrivare in orario",
       ],
       user: {
         name: "Mario",
@@ -209,6 +209,20 @@ createApp({
       this.contacts[index].visible = true;
       // Imposta l'indice del contatto attivo
       this.contactIndex = index;
+    },
+    addAnswer() {
+      if (this.newAnswer.trim() !== "") {
+        console.log("Aggiungo un nuova domanda");
+        this.answerRandom.push({ text: this.newAnswer, done: false });
+        this.newAnswer = "";
+      }
+    },
+    removeAnswer(index) {
+      console.log("rimuovo");
+      this.answerRandom.splice(index, 1);
+    },
+    toggleDone(index) {
+      this.answerRandom[index].done = !this.answerRandom[index].done;
     },
   },
 }).mount("#app");

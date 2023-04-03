@@ -105,7 +105,7 @@
             <!-- SEZIONE SFONDO CHAT -->
             <div id="bg-chat">
               <div class="dx">
-                <ul class="messages">
+                <ul>
                   <li
                     class="sent"
                     v-for="(message, index) in contacts[contactIndex].messages"
@@ -118,16 +118,18 @@
                       @click="deleteMessage(index, contactIndex)"
                     ></i>
                   </li>
-                </ul>
-              </div>
-              <div class="sx">
-                <ul class="messagesReceived">
+
                   <li
-                    class="received"
-                    v-for="(message, index) in contacts[contactIndex].messages"
-                    :key="message.id"
+                    class="sent"
+                    v-for="(Answer, index) in answerRandom"
+                    :key="index"
                   >
-                    <span>{{message.message }}</span>
+                    <span
+                      :class="{done:Answer.done}"
+                      @click="toggleDone(index)"
+                    >
+                      {{Answer.text}}
+                    </span>
                     <i
                       class="fa solid fa-xmark"
                       id="xmark"
@@ -136,7 +138,60 @@
                   </li>
                 </ul>
               </div>
+              <!-- right side -->
+              <div class="sx">
+                <!-- <ul>
+                  <li
+                    class="received"
+                    v-for="(Answer, index) in answerRandom"
+                    :key="index"
+                  >
+                    <span
+                      :class="{done:Answer.done}"
+                      @click="toggleDone(index)"
+                    >
+                      {{Answer.text}}
+                    </span>
+                    <i
+                      class="fa solid fa-xmark"
+                      id="xmark"
+                      @click="deleteMessage(index, contactIndex)"
+                    ></i>
+                  </li>
+                </ul> -->
+              </div>
             </div>
+            <!-- left side -->
+
+            <!-- SEZIONE SFONDO CHAT test 4
+            <div id="bg-chat">
+              <div class="dx">
+                <ul class="messages">
+                  <li
+                    class="sent"
+                    v-for="(message, index) in contacts[contactIndex].messages"
+                    :key="message.id"
+                  >
+                    <span>{{ message.message }}</span>
+                    <i
+                      class="fa solid fa-xmark"
+                      id="xmark"
+                      @click="deleteMessage(index, contactIndex)"
+                    ></i>
+                 
+                  <li class="sent" v-for="(Answer, index) in answerRandom" :key="index">
+                    <span :class="{done:Answer.done}" @click="toggleDone(index)">
+                      {{Answer.text}}
+                    </span>
+                    <i
+                    class="fa solid fa-xmark"
+                    id="xmark"
+                    @click="deleteMessage(index, contactIndex)"
+                  ></i>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
 
             <!-- -------------- RIGHT SIDE BOTTOM---------------------- -->
             <!-- SEZIONE CHAT -->
@@ -148,8 +203,23 @@
               </div>
               <div class="col-10">
                 <div class="middle">
-                  <input type="search" id="form1" class="form-control" />
+                  <input
+                    id="inserisci"
+                    type="text"
+                    v-model="newAnswer "
+                    @keyup.enter="addAnswer"
+                    class="form-control"
+                  />
                 </div>
+                <!-- <div
+                  class="sent"
+                  v-for="(Answer, index) in answerRandom"
+                  :key="index"
+                >
+                  <span :class="{done:Answer.done}" @click="toggleDone(index)">
+                    {{Answer.text}}
+                  </span>
+                </div> -->
               </div>
               <div class="col-1">
                 <div class="icon-right">
