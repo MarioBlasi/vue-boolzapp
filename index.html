@@ -71,7 +71,9 @@
               <div id="contatti">
                 <ul class="elenco">
                   <li
-                    v-for="(contact, index) in contacts"
+                    v-for="(contact, index) in filteredContacts"
+                    :key="index"
+                    class="contact"
                     :key="contact.id"
                     @click="showContact(index)"
                     :class="{ active: contact.visible }"
@@ -96,8 +98,7 @@
                   />
                 </div>
                 <div id="text-accesso">
-                  <div>{{contacts[contactIndex].name}}</div>
-                  <!-- <div>{{contacts[contactIndex].date}}</div> -->
+                  {{contacts[contactIndex].name}}
                   <p>ultimo accesso oggi alle 12:00</p>
                 </div>
 

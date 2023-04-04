@@ -33,12 +33,12 @@ createApp({
       answerRandom: ["ok"],
       user: {
         name: "Mario",
-        avatar: "_4",
+        avatar: "_io",
       },
       contacts: [
         {
           name: "Michele",
-          avatar: "/assets/img/avatar_1.jpg ",
+          avatar: "/assets/img/avatar_1.jpg",
           visible: true,
           messages: [
             {
@@ -60,7 +60,7 @@ createApp({
         },
         {
           name: "Fabio",
-          avatar: "./assets/img/avatar_2.jpg ",
+          avatar: "/assets/img/avatar_2.jpg",
           visible: true,
           messages: [
             {
@@ -82,7 +82,7 @@ createApp({
         },
         {
           name: "Samuele",
-          avatar: "/assets/img/avatar_3.jpg ",
+          avatar: "/assets/img/avatar_3.jpg",
           visible: true,
           messages: [
             {
@@ -104,7 +104,7 @@ createApp({
         },
         {
           name: "Alessandro B.",
-          avatar: "/assets/img/avatar_4.jpg ",
+          avatar: "/assets/img/avatar_4.jpg",
           visible: true,
           messages: [
             {
@@ -121,7 +121,7 @@ createApp({
         },
         {
           name: "Alessandro L.",
-          avatar: "/assets/img/avatar_5.jpg ",
+          avatar: "/assets/img/avatar_5.jpg",
           visible: true,
           messages: [
             {
@@ -138,7 +138,7 @@ createApp({
         },
         {
           name: "Claudia",
-          avatar: "/assets/img/avatar_6.jpg ",
+          avatar: "/assets/img/avatar_6.jpg",
           visible: true,
           messages: [
             {
@@ -160,7 +160,7 @@ createApp({
         },
         {
           name: "Federico",
-          avatar: "/assets/img/avatar_7.jpg ",
+          avatar: "/assets/img/avatar_7.jpg",
           visible: true,
           messages: [
             {
@@ -177,7 +177,7 @@ createApp({
         },
         {
           name: "Davide",
-          avatar: "/assets/img/avatar_8.jpg ",
+          avatar: "/assets/img/avatar_8.jpg",
           visible: true,
           messages: [
             {
@@ -200,6 +200,7 @@ createApp({
       ],
     };
   },
+
   methods: {
     // CANCELLA MESSAGGIO
     deleteMessage(index, contactIndex) {
@@ -209,21 +210,14 @@ createApp({
     randomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
-    // FILTRO
-    // showItem() {
+    //FILTRO
+    // showItem(contact) {
     //   if (!this.searchTerm.trim()) return true;
     //   const filter = this.searchTerm.trim().toLowerCase();
-
-    //   contact = contact.toLowerCase();
-    //   return contact.includes(filter);
+    //   const name = contact.name.trim().toLowerCase();
+    //   return name.includes(filter);
     // },
-    showItem(index) {
-      if (!this.searchTerm.trim()) return true;
-      const filter = this.searchTerm.trim().toLowerCase();
 
-      const contactName = this.activeContacts[index].name.toLowerCase();
-      return contactName.includes(filter);
-    },
     // CLICK CONTATTI E VISUALIZZAZIONE NELL'HEDER E NEL MAIN
     showContact(index) {
       this.contactIndex = index;
@@ -232,13 +226,13 @@ createApp({
     addMessage() {
       if (!this.chatMessage) return;
       this.contacts[this.contactIndex].messages.push({
-        date: "10/01/2020 15:30:55",
+        date: new Date().toLocaleDateString("it"),
         message: this.chatMessage,
         status: "sent",
       });
       setTimeout(() => {
         this.contacts[this.contactIndex].messages.push({
-          date: "10/01/2020 15:30:55",
+          date: new Date().toLocaleDateString("it"),
           message:
             this.answerRandom[
               this.randomNumber(0, this.answerRandom.length - 1)
@@ -247,6 +241,14 @@ createApp({
         });
       }, 1000);
       this.chatMessage = "";
+    },
+  },
+  computed: {
+    // array dei contatti filtrati
+    filteredContacts() {
+      return this.contacts.filter((contact) =>
+        contact.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
     },
   },
 }).mount("#app");
