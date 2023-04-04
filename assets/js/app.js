@@ -60,7 +60,7 @@ createApp({
         },
         {
           name: "Fabio",
-          avatar: "/assets/img/avatar_2.jpg ",
+          avatar: "./assets/img/avatar_2.jpg ",
           visible: true,
           messages: [
             {
@@ -210,11 +210,19 @@ createApp({
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
     // FILTRO
-    showItem(contact) {
+    // showItem() {
+    //   if (!this.searchTerm.trim()) return true;
+    //   const filter = this.searchTerm.trim().toLowerCase();
+
+    //   contact = contact.toLowerCase();
+    //   return contact.includes(filter);
+    // },
+    showItem(index) {
       if (!this.searchTerm.trim()) return true;
       const filter = this.searchTerm.trim().toLowerCase();
-      contact = contact.toLowerCase();
-      return contact.includes(filter);
+
+      const contactName = this.activeContacts[index].name.toLowerCase();
+      return contactName.includes(filter);
     },
     // CLICK CONTATTI E VISUALIZZAZIONE NELL'HEDER E NEL MAIN
     showContact(index) {

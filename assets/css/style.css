@@ -24,7 +24,7 @@ body {
     #f0f0f0 15%,
     #f0f0f0 100%
   );
-  overflow: hidden;
+  overflow: auto;
 }
 
 main {

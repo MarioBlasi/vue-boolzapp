@@ -97,6 +97,7 @@
                 </div>
                 <div id="text-accesso">
                   <div>{{contacts[contactIndex].name}}</div>
+                  <!-- <div>{{contacts[contactIndex].date}}</div> -->
                   <p>ultimo accesso oggi alle 12:00</p>
                 </div>
 
@@ -111,7 +112,7 @@
             <div class="bgChat">
               <ul>
                 <li
-                  v-for="(message, index) in contacts[contactIndex].messages"
+                  v-for="message in contacts[contactIndex].messages"
                   class="message-container"
                   :class="message.status"
                 >
