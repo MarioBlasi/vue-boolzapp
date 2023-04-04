@@ -210,7 +210,6 @@ createApp({
     randomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
-
     // CLICK CONTATTI E VISUALIZZAZIONE NELL'HEDER E NEL MAIN
     showContact(index) {
       this.contactIndex = index;
@@ -239,6 +238,7 @@ createApp({
   computed: {
     // array dei contatti filtrati
     filteredContacts() {
+      console.log("cia");
       return this.contacts.filter((contact) =>
         contact.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
