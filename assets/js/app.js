@@ -38,7 +38,7 @@ createApp({
       contacts: [
         {
           name: "Michele",
-          avatar: "/assets/img/avatar_1.jpg",
+          avatar: "./assets/img/avatar_1.jpg",
           visible: true,
           messages: [
             {
@@ -60,7 +60,7 @@ createApp({
         },
         {
           name: "Fabio",
-          avatar: "/assets/img/avatar_2.jpg",
+          avatar: "./assets/img/avatar_2.jpg",
           visible: true,
           messages: [
             {
@@ -82,7 +82,7 @@ createApp({
         },
         {
           name: "Samuele",
-          avatar: "/assets/img/avatar_3.jpg",
+          avatar: "./assets/img/avatar_3.jpg",
           visible: true,
           messages: [
             {
@@ -104,7 +104,7 @@ createApp({
         },
         {
           name: "Alessandro B.",
-          avatar: "/assets/img/avatar_4.jpg",
+          avatar: "./assets/img/avatar_4.jpg",
           visible: true,
           messages: [
             {
@@ -121,7 +121,7 @@ createApp({
         },
         {
           name: "Alessandro L.",
-          avatar: "/assets/img/avatar_5.jpg",
+          avatar: "./assets/img/avatar_5.jpg",
           visible: true,
           messages: [
             {
@@ -138,7 +138,7 @@ createApp({
         },
         {
           name: "Claudia",
-          avatar: "/assets/img/avatar_6.jpg",
+          avatar: "./assets/img/avatar_6.jpg",
           visible: true,
           messages: [
             {
@@ -160,7 +160,7 @@ createApp({
         },
         {
           name: "Federico",
-          avatar: "/assets/img/avatar_7.jpg",
+          avatar: "./assets/img/avatar_7.jpg",
           visible: true,
           messages: [
             {
@@ -177,7 +177,7 @@ createApp({
         },
         {
           name: "Davide",
-          avatar: "/assets/img/avatar_8.jpg",
+          avatar: "./assets/img/avatar_8.jpg",
           visible: true,
           messages: [
             {
@@ -210,13 +210,6 @@ createApp({
     randomNumber(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     },
-    //FILTRO
-    // showItem(contact) {
-    //   if (!this.searchTerm.trim()) return true;
-    //   const filter = this.searchTerm.trim().toLowerCase();
-    //   const name = contact.name.trim().toLowerCase();
-    //   return name.includes(filter);
-    // },
 
     // CLICK CONTATTI E VISUALIZZAZIONE NELL'HEDER E NEL MAIN
     showContact(index) {
