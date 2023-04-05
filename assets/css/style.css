@@ -6,7 +6,7 @@
   --mr-hovergray: rgb(251, 252, 252);
   --mr-msg-send: rgb(213, 249, 186);
 }
-/*-----------color------*/
+/*-----------color--------*/
 body {
   height: 100vh;
   background-image: linear-gradient(
@@ -17,11 +17,10 @@ body {
   );
   overflow: auto;
 }
-
 main {
   height: 90vh;
 }
-
+/*  MAIN AND BODY */
 .row {
   display: flex;
   margin-top: 5rem;
@@ -44,12 +43,11 @@ main {
   justify-content: space-between;
   padding-top: 0.4rem;
 }
-
+/*  STRUTTURA COL  */
 ul {
   list-style: none;
 }
 li {
-  /* padding: 1rem; */
   padding: 0.5rem;
 }
 
@@ -77,22 +75,34 @@ img {
 .elenco > li:hover {
   cursor: pointer;
   background-color: rgba(128, 128, 128, 0.295);
+}
+.elenco {
+  border: none;
+}
+.elenco > li {
   position: relative;
 }
 .textcontact {
   font-size: small;
   line-height: 0px;
-  padding: 5px;
+  padding: 10px;
+}
+.textcontact > b {
+  font-size: 14px;
 }
 .textcontact > p {
-  margin-top: 1.6rem;
+  margin-top: 1rem;
+  font-size: smaller;
+  color: grey;
 }
-h6 {
+.textcontact > h6 {
   position: absolute;
   font-size: small;
   color: gray;
-  right: 0;
+  right: 10px;
   top: 0;
+  font-size: x-small;
+  font-weight: 500;
 }
 .active {
   display: flex;
@@ -103,11 +113,6 @@ h6 {
   padding-bottom: 0.5rem;
   box-shadow: 7px 7px 13px -2px rgba(81, 81, 81, 0.068);
   border-bottom: 0.5px solid lightgrey;
-}
-.contatti {
-  background-color: lightgray;
-  display: flex;
-  align-items: center;
 }
 
 /* <!-- SEZIONE CONTATTI --> */
@@ -275,7 +280,6 @@ h6 {
   position: absolute;
   color: #aaa;
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -286,7 +290,11 @@ h6 {
   right: 0px;
   border-radius: 0.5rem;
 }
-
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.dropdown-content > a {
+  color: rgba(0, 0, 0, 0.678);
+  text-decoration: none;
+}
+/* dropdown */
