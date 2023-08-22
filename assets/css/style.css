@@ -204,7 +204,7 @@ img {
 
 .bgChat {
   border: 0.5px solid lightgrey;
-  background-image: url(../img/mine.jpg);
+  background-image: url("../img/mine.jpg");
   height: 90%;
   overflow: auto;
 }
