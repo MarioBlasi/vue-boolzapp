@@ -79,7 +79,7 @@
                   >
                     <img :src="contact.avatar" />
                     <div class="textcontact">
-                      <b>{{ contact.name }}</b></h5>
+                      <b>{{ contact.name }}</b>
                       <p>ultimo messaggio inviato</p>
                       <h6>12.00</h6>
                     </div>
@@ -100,7 +100,6 @@
                  <h3><b> {{contacts[contactIndex].name}}</b></h3>
                   <p>ultimo accesso oggi alle 12:00</p>
                 </div>
-
                 <div id="icon">
                   <i class="fas fa-search"></i>
                   <i class="fas fa-paperclip"></i>
@@ -120,13 +119,11 @@
                     <p>{{ message.message }}</p>
 
                     <div class="dropdown">
-                      
                       <i class="fa-solid fa-chevron-down"></i>
-
                       <div class="dropdown-content">
                         <p>Message info</p>
                         <br>
-                        <a href="#" @click="deleteMessage(index, contactIndex)">Delete Message</a>
+                        <a href="" @click="deleteMessage(index, contactIndex)">Delete Message</a>
                         </p>
                       </div>
                     </div>
